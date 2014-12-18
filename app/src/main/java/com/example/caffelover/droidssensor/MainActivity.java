@@ -14,7 +14,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
-import java.util.List;
+//import java.util.List;
 
 
 public class MainActivity extends Activity implements SensorEventListener {
