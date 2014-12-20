@@ -9,6 +9,8 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
+import android.sax.StartElementListener;
 import android.support.v4.app.FragmentActivity;
 import android.content.Context;
 import android.hardware.SensorManager;
@@ -81,11 +83,21 @@ public class MainActivity extends Activity implements SensorEventListener {
                 HashMap item = (HashMap) listView.getItemAtPosition(position);
                 String itemType = (String) item.get("main");
                 //Toast.makeText(MainActivity.this,itemType, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent();
                 switch (Integer.valueOf(itemType)) {
                     case Sensor.TYPE_ACCELEROMETER:
-                        Intent intent = new Intent();
                         String accClassName = Accelerater.class.getName();
                         intent.setClassName("com.example.caffelover.droidssensor",accClassName);
+                        startActivity(intent);
+                        break;
+                    case Sensor.TYPE_MAGNETIC_FIELD:
+                        String magneticFieldClassName = MagneticField.class.getName();
+                        intent.setClassName("com.example.caffelover.droidssensor",magneticFieldClassName);
+                        startActivity(intent);
+                        break;
+                    case Sensor.TYPE_ORIENTATION:
+                        String orientationClassName = Orientation.class.getName();
+                        intent.setClassName("com.example.caffelover.droidssensor",orientationClassName);
                         startActivity(intent);
                         break;
                     default:

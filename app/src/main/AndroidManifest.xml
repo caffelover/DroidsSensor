@@ -20,6 +20,14 @@
             android:name=".Accelerater"
             android:label="@string/title_activity_accelerater" >
         </activity>
+        <activity
+            android:name=".MagneticField"
+            android:label="@string/title_activity_magnetic_field" >
+        </activity>
+        <activity
+            android:name=".Orientation"
+            android:label="@string/title_activity_orientation" >
+        </activity>
     </application>
 
 </manifest>
