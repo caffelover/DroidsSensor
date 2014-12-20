@@ -4,5 +4,7 @@
     <string name="app_name">DroidsSensor</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_accelerater">Accelerater</string>
+    <string name="title_accel_jp">加速度センサー</string>
 
 </resources>

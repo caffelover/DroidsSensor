@@ -8,6 +8,7 @@ import java.util.Map;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.content.Context;
 import android.hardware.SensorManager;
@@ -23,6 +24,10 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.widget.SimpleAdapter;
+import android.widget.AdapterView;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Toast;
 
 //import java.util.List;
 
@@ -59,13 +64,37 @@ public class MainActivity extends Activity implements SensorEventListener {
             lvList.add(map);
         }
 
+        //ListView用のアダプターを作成
         SimpleAdapter adapter = new SimpleAdapter(this, lvList, android.R.layout.simple_list_item_2
                 , new String[]{"main", "sub"}, new int[]{android.R.id.text1, android.R.id.text2});
 
         lv = (ListView) findViewById(R.id.list_1);
         lv.setAdapter(adapter);
 
-        TextView txtView = (TextView) findViewById(R.id.sensorResult);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                ListView listView = (ListView) parent;
+                // クリックされたアイテムを取得します
+
+                HashMap item = (HashMap) listView.getItemAtPosition(position);
+                String itemType = (String) item.get("main");
+                //Toast.makeText(MainActivity.this,itemType, Toast.LENGTH_LONG).show();
+                switch (Integer.valueOf(itemType)) {
+                    case Sensor.TYPE_ACCELEROMETER:
+                        Intent intent = new Intent();
+                        String accClassName = Accelerater.class.getName();
+                        intent.setClassName("com.example.caffelover.droidssensor",accClassName);
+                        startActivity(intent);
+                        break;
+                    default:
+                        Toast.makeText(MainActivity.this, "その他", Toast.LENGTH_LONG).show();
+                        break;
+                }
+            }
+
+        });
 
     }
 
