@@ -6,11 +6,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity"
-    android:id="@+id/linear_accel"
+    android:id="@+id/linear_light"
     android:orientation="vertical"
     android:background="@color/black">
 
-    <TextView android:text="@string/title_accel_jp"
+    <TextView android:text="@string/title_activity_light"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -21,21 +21,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/x_axis"
-        android:textSize="18dp"
-        android:textColor="@color/orange"
-        android:background="@color/black"/>
+        android:id="@+id/light_name"
+        android:background="@color/black"
+        android:textColor="@color/orange"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/y_axis"
-        android:textSize="18dp"
-        android:textColor="@color/orange"
-        android:background="@color/black"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/z_axis"
+        android:id="@+id/lux"
         android:textSize="18dp"
         android:textColor="@color/orange"
         android:background="@color/black"/>
@@ -46,4 +38,5 @@
         android:id="@+id/btnBack"
         android:layout_gravity="left"
         android:onClick="onClick" />
+
 </LinearLayout>

@@ -11,5 +11,6 @@
     <string name="to_top">トップへ戻る</string>
     <string name="title_activity_orientation">方位センサー</string>
     <string name="title_activity_gyroscope">ジャイロスコープ</string>
+    <string name="title_activity_light">光センサー</string>
 
 </resources>

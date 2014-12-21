@@ -106,6 +106,9 @@ public class MainActivity extends Activity implements SensorEventListener {
                         startActivity(intent);
                         break;
                     case Sensor.TYPE_LIGHT:
+                        String lightClassName = Light.class.getName();
+                        intent.setClassName("com.example.caffelover.droidssensor",lightClassName);
+                        startActivity(intent);
                         break;
                     default:
                         Toast.makeText(MainActivity.this, "その他", Toast.LENGTH_LONG).show();

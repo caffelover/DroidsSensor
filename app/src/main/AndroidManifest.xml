@@ -32,6 +32,10 @@
             android:name=".Gyroscope"
             android:label="@string/title_activity_gyroscope" >
         </activity>
+        <activity
+            android:name=".Light"
+            android:label="@string/title_activity_light" >
+        </activity>
     </application>
 
 </manifest>
