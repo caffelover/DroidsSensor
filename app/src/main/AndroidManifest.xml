@@ -28,6 +28,10 @@
             android:name=".Orientation"
             android:label="@string/title_activity_orientation" >
         </activity>
+        <activity
+            android:name=".Gyroscope"
+            android:label="@string/title_activity_gyroscope" >
+        </activity>
     </application>
 
 </manifest>

@@ -9,5 +9,6 @@
     <string name="title_activity_magnetic_field">磁気センサー</string>
     <string name="to_top">トップへ戻る</string>
     <string name="title_activity_orientation">方位センサー</string>
+    <string name="title_activity_gyroscope">ジャイロスコープ</string>
 
 </resources>

@@ -51,7 +51,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         ArrayList<String> subTextPre = new ArrayList<String>();
         for (Sensor sensor : list) {
             mainTextPre.add(String.valueOf(sensor.getType()));
-            subTextPre.add(sensor.getName() + sensor.getVendor());
+            subTextPre.add(sensor.getVendor() + "社製：" + sensor.getName());
         }
 
         //配列に変換
@@ -98,6 +98,11 @@ public class MainActivity extends Activity implements SensorEventListener {
                     case Sensor.TYPE_ORIENTATION:
                         String orientationClassName = Orientation.class.getName();
                         intent.setClassName("com.example.caffelover.droidssensor",orientationClassName);
+                        startActivity(intent);
+                        break;
+                    case Sensor.TYPE_GYROSCOPE:
+                        String gyroscopeClassName = Gyroscope.class.getName();
+                        intent.setClassName("com.example.caffelover.droidssensor",gyroscopeClassName);
                         startActivity(intent);
                         break;
                     default:
