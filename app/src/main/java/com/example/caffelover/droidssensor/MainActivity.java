@@ -67,8 +67,8 @@ public class MainActivity extends Activity implements SensorEventListener {
         }
 
         //ListView用のアダプターを作成
-        SimpleAdapter adapter = new SimpleAdapter(this, lvList, android.R.layout.simple_list_item_2
-                , new String[]{"main", "sub"}, new int[]{android.R.id.text1, android.R.id.text2});
+        SimpleAdapter adapter = new SimpleAdapter(this, lvList, R.layout.list_item
+                , new String[]{"main", "sub"}, new int[]{R.id.main, R.id.sub});
 
         lv = (ListView) findViewById(R.id.list_1);
         lv.setAdapter(adapter);
@@ -104,6 +104,8 @@ public class MainActivity extends Activity implements SensorEventListener {
                         String gyroscopeClassName = Gyroscope.class.getName();
                         intent.setClassName("com.example.caffelover.droidssensor",gyroscopeClassName);
                         startActivity(intent);
+                        break;
+                    case Sensor.TYPE_LIGHT:
                         break;
                     default:
                         Toast.makeText(MainActivity.this, "その他", Toast.LENGTH_LONG).show();
