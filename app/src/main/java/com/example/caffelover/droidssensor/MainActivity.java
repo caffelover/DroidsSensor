@@ -10,6 +10,7 @@ import android.app.Fragment;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.sax.StartElementListener;
 import android.support.v4.app.FragmentActivity;
 import android.content.Context;
@@ -144,6 +145,15 @@ public class MainActivity extends Activity implements SensorEventListener {
                         String ambienttemperatureClassName = Ambient_temperature.class.getName();
                         intent.setClassName("com.example.caffelover.droidssensor",ambienttemperatureClassName);
                         startActivity(intent);
+                        break;
+                    case Sensor.TYPE_MAGNETIC_FIELD_UNCALIBRATED:
+                        if(Build.VERSION.SDK_INT >= 18) {
+                            String magnetic_field_uncalibratedClassName = Magnetic_field_uncalibrated.class.getName();
+                            intent.setClassName("com.example.caffelover.droidssensor", magnetic_field_uncalibratedClassName);
+                            startActivity(intent);
+                        }else{
+                            Toast.makeText(MainActivity.this,"API", Toast.LENGTH_LONG).show();
+                        }
                         break;
                     default:
                         break;

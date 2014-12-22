@@ -27,7 +27,6 @@ public class MagneticField extends Activity implements SensorEventListener {
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_MAGNETIC_FIELD);
         sensor = list.get(0);
-        TextView textViewZ = (TextView)findViewById(R.id.z_tesla);
     }
 
     @Override
@@ -41,12 +40,14 @@ public class MagneticField extends Activity implements SensorEventListener {
     public void onAccuracyChanged(Sensor arg0,int arg1){}
 
     public void onSensorChanged(SensorEvent event){
+        TextView textViewName = (TextView)findViewById(R.id.magnetic_field_name);
         TextView textViewX = (TextView)findViewById(R.id.x_tesla);
         TextView textViewY = (TextView)findViewById(R.id.y_tesla);
         TextView textViewZ = (TextView)findViewById(R.id.z_tesla);
+        textViewName.setText("センサー名：" + sensor.getName());
         textViewX.setText("x軸" + event.values[0]);
         textViewY.setText("y軸" + event.values[1]);
-        textViewZ.setText("z軸" + event.values.length);
+        textViewZ.setText("z軸" + event.values[2]);
     }
     public void onClick(View v){
         //Magnetic終了

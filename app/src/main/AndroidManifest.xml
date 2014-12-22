@@ -68,6 +68,10 @@
             android:name=".Ambient_temperature"
             android:label="@string/title_activity_ambient_temperature" >
         </activity>
+        <activity
+            android:name=".Magnetic_field_uncalibrated"
+            android:label="@string/title_activity_magnetic_field_uncalibrated" >
+        </activity>
     </application>
 
 </manifest>
