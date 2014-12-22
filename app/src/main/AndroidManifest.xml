@@ -48,6 +48,10 @@
             android:name=".Proximity"
             android:label="@string/title_activity_proximity" >
         </activity>
+        <activity
+            android:name=".Gravity"
+            android:label="@string/title_activity_gravity" >
+        </activity>
     </application>
 
 </manifest>

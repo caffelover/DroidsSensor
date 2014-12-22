@@ -120,6 +120,11 @@ public class MainActivity extends Activity implements SensorEventListener {
                         intent.setClassName("com.example.caffelover.droidssensor",temperatureClassName);
                         startActivity(intent);
                         break;
+                    case Sensor.TYPE_GRAVITY:
+                        String gravityClassName = Gravity.class.getName();
+                        intent.setClassName("com.example.caffelover.droidssensor",gravityClassName);
+                        startActivity(intent);
+                        break;
                     default:
                         Toast.makeText(MainActivity.this, "その他", Toast.LENGTH_LONG).show();
                         break;

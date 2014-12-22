@@ -14,15 +14,16 @@ import android.widget.TextView;
 import java.util.List;
 
 
-public class Proximity extends ActionBarActivity implements SensorEventListener {
+public class Gravity extends ActionBarActivity implements SensorEventListener {
     SensorManager mSensorManager;
     Sensor sensor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_proximity);
+        setContentView(R.layout.activity_gravity);
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_PROXIMITY);
+        List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_GRAVITY);
         sensor = list.get(0);
     }
 
@@ -37,16 +38,21 @@ public class Proximity extends ActionBarActivity implements SensorEventListener 
     public void onAccuracyChanged(Sensor arg0,int arg1){}
 
     public void onSensorChanged(SensorEvent event){
-        TextView textViewName = (TextView)findViewById(R.id.prox_name);
-        TextView textViewProx = (TextView)findViewById(R.id.cm);
+        TextView textViewName = (TextView)findViewById(R.id.gravity_name);
+        TextView textViewGravityX = (TextView)findViewById(R.id.ms2_x);
+        TextView textViewGravityY = (TextView)findViewById(R.id.ms2_y);
+        TextView textViewGravityZ = (TextView)findViewById(R.id.ms2_z);
         textViewName.setText("センサー名：" + sensor.getName());
-        textViewProx.setText("距離" + event.values[0] + " cm");
+        textViewGravityX.setText("重力加速度-X軸：" + event.values[0] + " m/s^2");
+        textViewGravityY.setText("重力加速度-Y軸：" + event.values[1] + " m/s^2");
+        textViewGravityZ.setText("重力加速度-Z軸：" + event.values[2] + " m/s^2");
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_proximity, menu);
+        getMenuInflater().inflate(R.menu.menu_gravity, menu);
         return true;
     }
 
