@@ -130,6 +130,11 @@ public class MainActivity extends Activity implements SensorEventListener {
                         intent.setClassName("com.example.caffelover.droidssensor",linearaccelClassName);
                         startActivity(intent);
                         break;
+                    case Sensor.TYPE_ROTATION_VECTOR:
+                        String rotationvectorClassName = Rotation_vector.class.getName();
+                        intent.setClassName("com.example.caffelover.droidssensor",rotationvectorClassName);
+                        startActivity(intent);
+                        break;
                     default:
                         Toast.makeText(MainActivity.this, "その他", Toast.LENGTH_LONG).show();
                         break;

@@ -56,6 +56,10 @@
             android:name=".LinearAcceleration"
             android:label="@string/title_activity_linear_acceleration" >
         </activity>
+        <activity
+            android:name=".Rotation_vector"
+            android:label="@string/title_activity_rotation_vector" >
+        </activity>
     </application>
 
 </manifest>

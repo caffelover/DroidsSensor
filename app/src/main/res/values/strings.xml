@@ -17,5 +17,6 @@
     <string name="title_activity_proximity">近接センサー</string>
     <string name="title_activity_gravity">重力センサー</string>
     <string name="title_activity_linear_acceleration">直線加速度センサー</string>
+    <string name="title_activity_rotation_vector">回転ベクトル</string>
 
 </resources>
