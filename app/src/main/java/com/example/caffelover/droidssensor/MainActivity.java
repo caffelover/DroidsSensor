@@ -110,6 +110,16 @@ public class MainActivity extends Activity implements SensorEventListener {
                         intent.setClassName("com.example.caffelover.droidssensor",lightClassName);
                         startActivity(intent);
                         break;
+                    case Sensor.TYPE_PRESSURE:
+                        String pressureClassName = Pressure.class.getName();
+                        intent.setClassName("com.example.caffelover.droidssensor",pressureClassName);
+                        startActivity(intent);
+                        break;
+                    case Sensor.TYPE_TEMPERATURE:
+                        String temperatureClassName = Temperature.class.getName();
+                        intent.setClassName("com.example.caffelover.droidssensor",temperatureClassName);
+                        startActivity(intent);
+                        break;
                     default:
                         Toast.makeText(MainActivity.this, "その他", Toast.LENGTH_LONG).show();
                         break;

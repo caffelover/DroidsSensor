@@ -36,6 +36,14 @@
             android:name=".Light"
             android:label="@string/title_activity_light" >
         </activity>
+        <activity
+            android:name=".Pressure"
+            android:label="@string/title_activity_pressure" >
+        </activity>
+        <activity
+            android:name=".Temperature"
+            android:label="@string/title_activity_temperature" >
+        </activity>
     </application>
 
 </manifest>
