@@ -52,6 +52,10 @@
             android:name=".Gravity"
             android:label="@string/title_activity_gravity" >
         </activity>
+        <activity
+            android:name=".LinearAcceleration"
+            android:label="@string/title_activity_linear_acceleration" >
+        </activity>
     </application>
 
 </manifest>

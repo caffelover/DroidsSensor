@@ -16,5 +16,6 @@
     <string name="title_activity_temperature">温度センサー</string>
     <string name="title_activity_proximity">近接センサー</string>
     <string name="title_activity_gravity">重力センサー</string>
+    <string name="title_activity_linear_acceleration">直線加速度センサー</string>
 
 </resources>
