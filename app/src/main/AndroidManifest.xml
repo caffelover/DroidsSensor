@@ -60,6 +60,14 @@
             android:name=".Rotation_vector"
             android:label="@string/title_activity_rotation_vector" >
         </activity>
+        <activity
+            android:name=".Relative_humidity"
+            android:label="@string/title_activity_relative_humidity" >
+        </activity>
+        <activity
+            android:name=".Ambient_temperature"
+            android:label="@string/title_activity_ambient_temperature" >
+        </activity>
     </application>
 
 </manifest>
