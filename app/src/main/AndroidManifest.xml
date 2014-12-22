@@ -44,6 +44,10 @@
             android:name=".Temperature"
             android:label="@string/title_activity_temperature" >
         </activity>
+        <activity
+            android:name=".Proximity"
+            android:label="@string/title_activity_proximity" >
+        </activity>
     </application>
 
 </manifest>

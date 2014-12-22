@@ -14,5 +14,6 @@
     <string name="title_activity_light">光センサー</string>
     <string name="title_activity_pressure">気圧センサー</string>
     <string name="title_activity_temperature">温度センサー</string>
+    <string name="title_activity_proximity">近接センサー</string>
 
 </resources>
