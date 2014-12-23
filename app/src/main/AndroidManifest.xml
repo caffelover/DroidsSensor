@@ -72,6 +72,10 @@
             android:name=".Magnetic_field_uncalibrated"
             android:label="@string/title_activity_magnetic_field_uncalibrated" >
         </activity>
+        <activity
+            android:name=".Game_rotation_vector"
+            android:label="@string/title_activity_game_rotation_vector" >
+        </activity>
     </application>
 
 </manifest>

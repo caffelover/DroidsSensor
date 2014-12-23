@@ -155,6 +155,10 @@ public class MainActivity extends Activity implements SensorEventListener {
                             Toast.makeText(MainActivity.this,"API", Toast.LENGTH_LONG).show();
                         }
                         break;
+                    case Sensor.TYPE_GAME_ROTATION_VECTOR:
+                        String gamerotationvectorClassName = Game_rotation_vector.class.getName();
+                        intent.setClassName("com.example.caffelover.droidssensor",gamerotationvectorClassName);
+                        startActivity(intent);
                     default:
                         break;
                 }

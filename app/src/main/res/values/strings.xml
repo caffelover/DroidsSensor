@@ -20,6 +20,7 @@
     <string name="title_activity_rotation_vector">回転ベクトルセンサー</string>
     <string name="title_activity_relative_humidity">相対湿度センサー</string>
     <string name="title_activity_ambient_temperature">気温センサー</string>
-    <string name="title_activity_magnetic_field_uncalibrated">磁界センサー(調整なし)</string>
+    <string name="title_activity_magnetic_field_uncalibrated">磁界センサー(補正なし)</string>
+    <string name="title_activity_game_rotation_vector">回転ベクトルセンサー(補正なし)</string>
 
 </resources>
