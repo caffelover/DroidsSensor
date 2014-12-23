@@ -76,6 +76,10 @@
             android:name=".Game_rotation_vector"
             android:label="@string/title_activity_game_rotation_vector" >
         </activity>
+        <activity
+            android:name=".Gyroscope_uncalibrated"
+            android:label="@string/title_activity_gyroscope_uncalibrated" >
+        </activity>
     </application>
 
 </manifest>

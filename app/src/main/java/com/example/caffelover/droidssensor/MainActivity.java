@@ -152,13 +152,27 @@ public class MainActivity extends Activity implements SensorEventListener {
                             intent.setClassName("com.example.caffelover.droidssensor", magnetic_field_uncalibratedClassName);
                             startActivity(intent);
                         }else{
-                            Toast.makeText(MainActivity.this,"API", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this,"APIレベルが不足しています", Toast.LENGTH_LONG).show();
                         }
                         break;
                     case Sensor.TYPE_GAME_ROTATION_VECTOR:
-                        String gamerotationvectorClassName = Game_rotation_vector.class.getName();
-                        intent.setClassName("com.example.caffelover.droidssensor",gamerotationvectorClassName);
-                        startActivity(intent);
+                        if(Build.VERSION.SDK_INT >= 18) {
+                            String gamerotationvectorClassName = Game_rotation_vector.class.getName();
+                            intent.setClassName("com.example.caffelover.droidssensor", gamerotationvectorClassName);
+                            startActivity(intent);
+                        }else{
+                            Toast.makeText(MainActivity.this,"APIレベルが不足しています", Toast.LENGTH_LONG).show();
+                        }
+                        break;
+                    case Sensor.TYPE_GYROSCOPE_UNCALIBRATED:
+                        if(Build.VERSION.SDK_INT >= 18) {
+                            String gyroscopeuncalibratedClassName = Gyroscope_uncalibrated.class.getName();
+                            intent.setClassName("com.example.caffelover.droidssensor", gyroscopeuncalibratedClassName);
+                            startActivity(intent);
+                        }else{
+                            Toast.makeText(MainActivity.this,"APIレベルが不足しています", Toast.LENGTH_LONG).show();
+                        }
+                        break;
                     default:
                         break;
                 }
