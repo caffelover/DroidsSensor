@@ -23,5 +23,6 @@
     <string name="title_activity_magnetic_field_uncalibrated">磁界センサー(補正なし)</string>
     <string name="title_activity_game_rotation_vector">回転ベクトルセンサー(補正なし)</string>
     <string name="title_activity_gyroscope_uncalibrated">ジャイロスコープ(補正なし)</string>
+    <string name="title_activity_significant_motion">有意モーションセンサー</string>
 
 </resources>

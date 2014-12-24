@@ -80,6 +80,10 @@
             android:name=".Gyroscope_uncalibrated"
             android:label="@string/title_activity_gyroscope_uncalibrated" >
         </activity>
+        <activity
+            android:name=".Significant_motion"
+            android:label="@string/title_activity_significant_motion" >
+        </activity>
     </application>
 
 </manifest>

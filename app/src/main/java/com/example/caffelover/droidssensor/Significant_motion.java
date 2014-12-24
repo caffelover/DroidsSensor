@@ -14,16 +14,16 @@ import android.widget.TextView;
 import java.util.List;
 
 
-public class Gyroscope_uncalibrated extends ActionBarActivity implements SensorEventListener {
+public class Significant_motion extends ActionBarActivity  implements SensorEventListener {
     SensorManager mSensorManager;
     Sensor sensor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gyroscope_uncalibrated);
+        setContentView(R.layout.activity_significant_motion);
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_GYROSCOPE_UNCALIBRATED);
+        List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_SIGNIFICANT_MOTION);
         sensor = list.get(0);
     }
 
@@ -39,26 +39,16 @@ public class Gyroscope_uncalibrated extends ActionBarActivity implements SensorE
     }
 
     public void onSensorChanged(SensorEvent event) {
-        TextView textViewName = (TextView) findViewById(R.id.gyroscope_uncalibrated_name);
-        TextView textViewX = (TextView) findViewById(R.id.x_axis);
-        TextView textViewY = (TextView) findViewById(R.id.y_axis);
-        TextView textViewZ = (TextView) findViewById(R.id.z_axis);
-        TextView textViewX_est = (TextView) findViewById(R.id.x_axis_estimated);
-        TextView textViewY_est = (TextView) findViewById(R.id.y_axis_estimated);
-        TextView textViewZ_est = (TextView) findViewById(R.id.z_axis_estimated);
+        TextView textViewName = (TextView) findViewById(R.id.significant_motion_name);
+        TextView textViewWake = (TextView) findViewById(R.id.wake);
         textViewName.setText("センサー名：" + sensor.getName());
-        textViewX.setText("angular speed around the X axis(rad/s)：" + event.values[0]);
-        textViewY.setText("angular speed around the Y axis(rad/s)：" + event.values[1]);
-        textViewZ.setText("angular speed around the Z axis(rad/s)：" + event.values[2]);
-        textViewX_est.setText("estimated drift around X axis(rad/s)：" + event.values[3]);
-        textViewY_est.setText("estimated drift around Y axis(rad/s)：" + event.values[4]);
-        textViewZ_est.setText("estimated drift around Z axis(rad/s)：" + event.values[5]);
+        textViewWake.setText("Trigger Event：" + event.values[0]);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_gyroscope_uncalibrated, menu);
+        getMenuInflater().inflate(R.menu.menu_significant_motion, menu);
         return true;
     }
 

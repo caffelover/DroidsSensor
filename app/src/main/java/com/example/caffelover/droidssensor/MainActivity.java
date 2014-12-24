@@ -173,6 +173,15 @@ public class MainActivity extends Activity implements SensorEventListener {
                             Toast.makeText(MainActivity.this,"APIレベルが不足しています", Toast.LENGTH_LONG).show();
                         }
                         break;
+                    case Sensor.TYPE_SIGNIFICANT_MOTION:
+                        if(Build.VERSION.SDK_INT >= 18) {
+                            String significantmotionsensorClassName = Significant_motion.class.getName();
+                            intent.setClassName("com.example.caffelover.droidssensor", significantmotionsensorClassName);
+                            startActivity(intent);
+                        }else{
+                            Toast.makeText(MainActivity.this,"APIレベルが不足しています", Toast.LENGTH_LONG).show();
+                        }
+                        break;
                     default:
                         break;
                 }
