@@ -88,6 +88,10 @@
             android:name=".Stepdetector"
             android:label="@string/title_activity_stepdetector" >
         </activity>
+        <activity
+            android:name=".Stepcounter"
+            android:label="@string/title_activity_stepcounter" >
+        </activity>
     </application>
 
 </manifest>

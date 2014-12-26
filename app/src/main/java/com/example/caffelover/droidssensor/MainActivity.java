@@ -191,6 +191,15 @@ public class MainActivity extends Activity implements SensorEventListener {
                             Toast.makeText(MainActivity.this,"APIレベルが不足しています", Toast.LENGTH_LONG).show();
                         }
                         break;
+                    case Sensor.TYPE_STEP_COUNTER:
+                        if(Build.VERSION.SDK_INT >= 19) {
+                            String stepcounterClassName = Stepcounter.class.getName();
+                            intent.setClassName("com.example.caffelover.droidssensor", stepcounterClassName);
+                            startActivity(intent);
+                        }else{
+                            Toast.makeText(MainActivity.this,"APIレベルが不足しています", Toast.LENGTH_LONG).show();
+                        }
+                        break;
                     default:
                         break;
                 }

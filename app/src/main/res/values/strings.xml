@@ -25,5 +25,6 @@
     <string name="title_activity_gyroscope_uncalibrated">ジャイロスコープ(補正なし)</string>
     <string name="title_activity_significant_motion">有意モーションセンサー</string>
     <string name="title_activity_stepdetector">ステップ検出センサー</string>
+    <string name="title_activity_stepcounter">Stepcounter</string>
 
 </resources>
