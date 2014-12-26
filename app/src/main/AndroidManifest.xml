@@ -92,6 +92,10 @@
             android:name=".Stepcounter"
             android:label="@string/title_activity_stepcounter" >
         </activity>
+        <activity
+            android:name=".Geomagnetic_Rotation_Vector"
+            android:label="@string/title_activity_geomagnetic__rotation__vector" >
+        </activity>
     </application>
 
 </manifest>

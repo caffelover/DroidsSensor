@@ -14,17 +14,25 @@ import android.widget.TextView;
 import java.util.List;
 
 
-public class Rotation_vector extends ActionBarActivity implements SensorEventListener {
+public class Geomagnetic_Rotation_Vector extends ActionBarActivity implements SensorEventListener {
     SensorManager mSensorManager;
     Sensor sensor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rotation_vector);
+        setContentView(R.layout.activity_geomagnetic__rotation__vector);
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_ROTATION_VECTOR);
+        List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR);
         sensor = list.get(0);
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_geomagnetic__rotation__vector, menu);
+        return true;
     }
 
     @Override
@@ -38,7 +46,7 @@ public class Rotation_vector extends ActionBarActivity implements SensorEventLis
     public void onAccuracyChanged(Sensor arg0,int arg1){}
 
     public void onSensorChanged(SensorEvent event){
-        TextView textViewName = (TextView)findViewById(R.id.rotation_vector_name);
+        TextView textViewName = (TextView)findViewById(R.id.geomagnetic_rotation_vector_name);
         TextView textViewRotVectorX = (TextView)findViewById(R.id.x_axis);
         TextView textViewRotVectorY = (TextView)findViewById(R.id.y_axis);
         TextView textViewRotVectorZ = (TextView)findViewById(R.id.z_axis);
@@ -50,13 +58,6 @@ public class Rotation_vector extends ActionBarActivity implements SensorEventLis
         textViewRotVectorZ.setText("z*sin(θ/2)：" + event.values[2]);
         textViewCos.setText("cos(θ/2)：" + event.values[3]);
         textViewAccuracy.setText("estimated heading Accuracy (in radians)：" + event.values[4]);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_rotation_vector, menu);
-        return true;
     }
 
     @Override

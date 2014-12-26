@@ -200,6 +200,16 @@ public class MainActivity extends Activity implements SensorEventListener {
                             Toast.makeText(MainActivity.this,"APIレベルが不足しています", Toast.LENGTH_LONG).show();
                         }
                         break;
+                    case Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR:
+                        if(Build.VERSION.SDK_INT >= 19) {
+                            String geomatneticrotationClassName = Geomagnetic_Rotation_Vector.class.getName();
+                            intent.setClassName("com.example.caffelover.droidssensor", geomatneticrotationClassName);
+                            startActivity(intent);
+                        }else{
+                            Toast.makeText(MainActivity.this,"APIレベルが不足しています", Toast.LENGTH_LONG).show();
+                        }
+                        break;
+
                     default:
                         break;
                 }
