@@ -96,6 +96,10 @@
             android:name=".Geomagnetic_Rotation_Vector"
             android:label="@string/title_activity_geomagnetic__rotation__vector" >
         </activity>
+        <activity
+            android:name=".Heart_Rate"
+            android:label="@string/title_activity_heart__rate" >
+        </activity>
     </application>
 
 </manifest>

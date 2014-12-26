@@ -14,16 +14,16 @@ import android.widget.TextView;
 import java.util.List;
 
 
-public class Geomagnetic_Rotation_Vector extends ActionBarActivity implements SensorEventListener {
+public class Heart_Rate extends ActionBarActivity implements SensorEventListener {
     SensorManager mSensorManager;
     Sensor sensor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_geomagnetic__rotation__vector);
+        setContentView(R.layout.activity_heart__rate);
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR);
+        List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_HEART_RATE);
         sensor = list.get(0);
     }
 
@@ -38,24 +38,16 @@ public class Geomagnetic_Rotation_Vector extends ActionBarActivity implements Se
     public void onAccuracyChanged(Sensor arg0,int arg1){}
 
     public void onSensorChanged(SensorEvent event){
-        TextView textViewName = (TextView)findViewById(R.id.geomagnetic_rotation_vector_name);
-        TextView textViewRotVectorX = (TextView)findViewById(R.id.x_axis);
-        TextView textViewRotVectorY = (TextView)findViewById(R.id.y_axis);
-        TextView textViewRotVectorZ = (TextView)findViewById(R.id.z_axis);
-        TextView textViewCos = (TextView)findViewById(R.id.cos);
-        TextView textViewAccuracy = (TextView)findViewById(R.id.accuracy);
+        TextView textViewName = (TextView)findViewById(R.id.heart_rate_name);
+        TextView textViewHearRate = (TextView)findViewById(R.id.rate);
         textViewName.setText("センサー名：" + sensor.getName());
-        textViewRotVectorX.setText("x*sin(θ/2)：" + event.values[0]);
-        textViewRotVectorY.setText("y*sin(θ/2)：" + event.values[1]);
-        textViewRotVectorZ.setText("z*sin(θ/2)：" + event.values[2]);
-        textViewCos.setText("cos(θ/2)：" + event.values[3]);
-        textViewAccuracy.setText("estimated heading Accuracy (in radians)：" + event.values[4]);
+        textViewHearRate.setText("心拍数：" + event.values[0]);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_geomagnetic__rotation__vector, menu);
+        getMenuInflater().inflate(R.menu.menu_heart__rate, menu);
         return true;
     }
 

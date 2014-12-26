@@ -27,5 +27,6 @@
     <string name="title_activity_stepdetector">ステップ検出センサー</string>
     <string name="title_activity_stepcounter">ステップカウンター</string>
     <string name="title_activity_geomagnetic__rotation__vector">地磁気回転センサー</string>
+    <string name="title_activity_heart__rate">心拍センサー</string>
 
 </resources>
