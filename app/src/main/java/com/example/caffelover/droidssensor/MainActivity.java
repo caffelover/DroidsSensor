@@ -46,30 +46,58 @@ public class MainActivity extends Activity implements SensorEventListener {
         SensorManager mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_ALL);
 
+        //センサーのタイプ番号とセンサータイプ名の対応ハッシュマップを作成
+        HashMap<String,String> sensorCorres = new HashMap<String,String>();
+        sensorCorres.put(String.valueOf(Sensor.TYPE_ACCELEROMETER),"加速度センサー");
+        sensorCorres.put(String.valueOf(Sensor.TYPE_MAGNETIC_FIELD),"磁界センサー");
+        sensorCorres.put(String.valueOf(Sensor.TYPE_ORIENTATION),"方位センサー");
+        sensorCorres.put(String.valueOf(Sensor.TYPE_GYROSCOPE),"ジャイロスコープ");
+        sensorCorres.put(String.valueOf(Sensor.TYPE_LIGHT),"光センサー");
+        sensorCorres.put(String.valueOf(Sensor.TYPE_TEMPERATURE),"温度センサー");
+        sensorCorres.put(String.valueOf(Sensor.TYPE_PROXIMITY),"近接センサー");
+        sensorCorres.put(String.valueOf(Sensor.TYPE_GRAVITY),"重力センサー");
+        sensorCorres.put(String.valueOf(Sensor.TYPE_LINEAR_ACCELERATION),"直線加速度センサー");
+        sensorCorres.put(String.valueOf(Sensor.TYPE_ROTATION_VECTOR),"回転ベクトルセンサー");
+        sensorCorres.put(String.valueOf(Sensor.TYPE_RELATIVE_HUMIDITY),"相対湿度センサー");
+        if(Build.VERSION.SDK_INT >= 18) {
+            sensorCorres.put(String.valueOf(Sensor.TYPE_MAGNETIC_FIELD_UNCALIBRATED), "磁界センサー(補正なし)");
+            sensorCorres.put(String.valueOf(Sensor.TYPE_GAME_ROTATION_VECTOR), "回転ベクトルセンサー(補正なし)");
+            sensorCorres.put(String.valueOf(Sensor.TYPE_GYROSCOPE_UNCALIBRATED), "ジャイロスコープ(補正なし)");
+            sensorCorres.put(String.valueOf(Sensor.TYPE_SIGNIFICANT_MOTION), "有意モーションセンサー");
+        }
+        if(Build.VERSION.SDK_INT >= 19) {
+            sensorCorres.put(String.valueOf(Sensor.TYPE_STEP_DETECTOR), "ステップ検出センサー");
+            sensorCorres.put(String.valueOf(Sensor.TYPE_STEP_COUNTER), "ステップカウンター");
+            sensorCorres.put(String.valueOf(Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR), "地磁気回転センサー");
+        }
+        if(Build.VERSION.SDK_INT >= 20) {
+            sensorCorres.put(String.valueOf(Sensor.TYPE_HEART_RATE), "心拍センサー");
+        }
+
         //センサーのタイプをメインに格納(後で名前に変換する)
-        //String[] mainText;
-        ArrayList<String> mainTextPre = new ArrayList<String>();
+        ArrayList<String> typePre = new ArrayList<String>();
         ArrayList<String> subTextPre = new ArrayList<String>();
         for (Sensor sensor : list) {
-            mainTextPre.add(String.valueOf(sensor.getType()));
+            typePre.add(String.valueOf(sensor.getType()));
             subTextPre.add(sensor.getVendor() + "社製：" + sensor.getName());
         }
 
         //配列に変換
-        String[] mainText = (String[]) mainTextPre.toArray(new String[0]);
+        String[] type = (String[]) typePre.toArray(new String[0]);
         String[] subText = (String[]) subTextPre.toArray(new String[0]);
 
         final List<Map<String, String>> lvList = new ArrayList<Map<String, String>>();
-        for (int i = 0; i < mainText.length; i++) {
+        for (int i = 0; i < type.length; i++) {
             Map<String, String> map = new HashMap<String, String>();
-            map.put("main", mainText[i]);
+            map.put("main", sensorCorres.get(type[i]));
             map.put("sub", subText[i]);
+            map.put("type_num",type[i]);
             lvList.add(map);
         }
 
         //ListView用のアダプターを作成
         SimpleAdapter adapter = new SimpleAdapter(this, lvList, R.layout.list_item
-                , new String[]{"main", "sub"}, new int[]{R.id.main, R.id.sub});
+                , new String[]{"main", "sub","type_num"}, new int[]{R.id.main, R.id.sub,R.id.type_num});
 
         lv = (ListView) findViewById(R.id.list_1);
         lv.setAdapter(adapter);
@@ -82,7 +110,7 @@ public class MainActivity extends Activity implements SensorEventListener {
                 // クリックされたアイテムを取得します
 
                 HashMap item = (HashMap) listView.getItemAtPosition(position);
-                String itemType = (String) item.get("main");
+                String itemType = (String) item.get("type_num");
                 //Toast.makeText(MainActivity.this,itemType, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent();
                 switch (Integer.valueOf(itemType)) {
@@ -119,6 +147,11 @@ public class MainActivity extends Activity implements SensorEventListener {
                     case Sensor.TYPE_TEMPERATURE:
                         String temperatureClassName = Temperature.class.getName();
                         intent.setClassName("com.example.caffelover.droidssensor",temperatureClassName);
+                        startActivity(intent);
+                        break;
+                    case Sensor.TYPE_PROXIMITY:
+                        String proximityClassName = Proximity.class.getName();
+                        intent.setClassName("com.example.caffelover.droidssensor",proximityClassName);
                         startActivity(intent);
                         break;
                     case Sensor.TYPE_GRAVITY:

@@ -19,5 +19,13 @@
         android:background="@color/black"
         android:textColor="@color/orange"
         android:textSize="18dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/type_num"
+        android:background="@color/black"
+        android:textColor="@color/orange"
+        android:textSize="18dp"
+        android:visibility="gone" />
 
 </LinearLayout>

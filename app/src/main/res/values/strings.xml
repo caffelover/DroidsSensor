@@ -5,7 +5,7 @@
     <string name="app_title">AndroidSensorChecker</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_accelerater">Accelerater</string>
+    <string name="title_activity_accelerater">加速度センサー</string>
     <string name="title_accel_jp">加速度センサー</string>
     <string name="title_activity_magnetic_field">磁界センサー</string>
     <string name="to_top">トップへ戻る</string>

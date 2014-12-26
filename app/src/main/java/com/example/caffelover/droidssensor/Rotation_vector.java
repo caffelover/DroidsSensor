@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -48,8 +49,10 @@ public class Rotation_vector extends ActionBarActivity implements SensorEventLis
         textViewRotVectorX.setText("x*sin(θ/2)：" + event.values[0]);
         textViewRotVectorY.setText("y*sin(θ/2)：" + event.values[1]);
         textViewRotVectorZ.setText("z*sin(θ/2)：" + event.values[2]);
-        textViewCos.setText("cos(θ/2)：" + event.values[3]);
-        textViewAccuracy.setText("estimated heading Accuracy (in radians)：" + event.values[4]);
+        if(Build.VERSION.SDK_INT >= 18) {
+            textViewCos.setText("cos(θ/2)：" + event.values[3]);
+            textViewAccuracy.setText("estimated heading Accuracy (in radians)：" + event.values[4]);
+        }
     }
 
     @Override
