@@ -84,6 +84,10 @@
             android:name=".Significant_motion"
             android:label="@string/title_activity_significant_motion" >
         </activity>
+        <activity
+            android:name=".Stepdetector"
+            android:label="@string/title_activity_stepdetector" >
+        </activity>
     </application>
 
 </manifest>
