@@ -8,36 +8,13 @@
     android:id="@+id/linear_orientation"
     android:orientation="vertical"
     android:background="@color/black">
-
-    <TextView android:text="@string/title_activity_orientation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/orientation_name"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
+        style="@style/TextStyle1"
+        android:id="@+id/orientation_name"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/pitch"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
+        style="@style/TextStyle2"
+        android:id="@+id/pitch"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/roll"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/to_top"
-        android:id="@+id/btnBack"
-        android:layout_gravity="left"
-        android:onClick="onClick"/>
-
+        style="@style/TextStyle2"
+        android:id="@+id/roll"/>
 </LinearLayout>

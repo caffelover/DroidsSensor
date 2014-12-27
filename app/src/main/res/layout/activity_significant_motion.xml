@@ -8,21 +8,10 @@
     android:id="@+id/significant_motion"
     android:orientation="vertical"
     android:background="@color/black">
-
-    <TextView android:text="@string/title_activity_significant_motion" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/black"
-        android:textColor="@color/orange" />
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/significant_motion_name"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
+        style="@style/TextStyle1"
+        android:id="@+id/significant_motion_name"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/wake"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
+        style="@style/TextStyle2"
+        android:id="@+id/wake"/>
 </LinearLayout>

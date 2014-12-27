@@ -9,50 +9,25 @@
     android:orientation="vertical"
     android:background="@color/black">
 
-    <TextView android:text="@string/title_activity_gyroscope_uncalibrated" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/black"
-        android:textColor="@color/orange" />
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/gyroscope_uncalibrated_name"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
+        style="@style/TextStyle1"
+        android:id="@+id/gyroscope_uncalibrated_name"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/x_axis"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
+        style="@style/TextStyle2"
+        android:id="@+id/x_axis"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/y_axis"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
+        style="@style/TextStyle2"
+        android:id="@+id/y_axis"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/z_axis"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
+        style="@style/TextStyle2"
+        android:id="@+id/z_axis"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/x_axis_estimated"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
+        style="@style/TextStyle2"
+        android:id="@+id/x_axis_estimated"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/y_axis_estimated"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
+        style="@style/TextStyle2"
+        android:id="@+id/y_axis_estimated"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/z_axis_estimated"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
+        style="@style/TextStyle2"
+        android:id="@+id/z_axis_estimated"/>
 </LinearLayout>

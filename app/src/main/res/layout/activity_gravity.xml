@@ -9,41 +9,16 @@
     android:id="@+id/sensor_gravity"
     android:orientation="vertical"
     android:background="@color/black">
-
-    <TextView android:text="@string/title_activity_gravity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@color/orange"
-        android:background="@color/black"
-        android:textSize="22dp"
-        android:textStyle="bold" />
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/gravity_name"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
+        style="@style/TextStyle1"
+        android:id="@+id/gravity_name"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ms2_x"
-        android:textSize="18dp"
-        android:textColor="@color/orange"
-        android:background="@color/black"/>
+        style="@style/TextStyle2"
+        android:id="@+id/ms2_x"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ms2_y"
-        android:textSize="18dp"
-        android:textColor="@color/orange"
-        android:background="@color/black"/>
+        style="@style/TextStyle2"
+        android:id="@+id/ms2_y"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ms2_z"
-        android:textSize="18dp"
-        android:textColor="@color/orange"
-        android:background="@color/black"/>
-
+        style="@style/TextStyle2"
+        android:id="@+id/ms2_z"/>
 </LinearLayout>

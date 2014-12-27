@@ -9,47 +9,25 @@
     android:id="@+id/sensor_magnetic_field_uncalibrated"
     android:orientation="vertical"
     android:background="@color/black">
-
-    <TextView android:text="@string/title_activity_magnetic_field_uncalibrated"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/magnetic_field_uncalibrated_name"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
-    <TextView android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/x_uncalib"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
-    <TextView android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/y_uncalib"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
-    <TextView android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/z_uncalib"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
-    <TextView android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/x_bias"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
-    <TextView android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/y_bias"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
-    <TextView android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/z_bias"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
+        style="@style/TextStyle1"
+        android:id="@+id/magnetic_field_uncalibrated_name"/>
+    <TextView
+        style="@style/TextStyle2"
+        android:id="@+id/x_uncalib"/>
+    <TextView
+        style="@style/TextStyle2"
+        android:id="@+id/y_uncalib"/>
+    <TextView
+        style="@style/TextStyle2"
+        android:id="@+id/z_uncalib"/>
+    <TextView
+        style="@style/TextStyle2"
+        android:id="@+id/x_bias"/>
+    <TextView
+        style="@style/TextStyle2"
+        android:id="@+id/y_bias"/>
+    <TextView
+        style="@style/TextStyle2"
+        android:id="@+id/z_bias"/>
 </LinearLayout>

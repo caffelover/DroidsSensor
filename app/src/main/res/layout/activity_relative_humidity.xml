@@ -9,61 +9,25 @@
     android:id="@+id/sensor_relative_humidty"
     android:orientation="vertical"
     android:background="@color/black">
-
-    <TextView android:text="@string/title_activity_relative_humidity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@color/orange"
-        android:background="@color/black"
-        android:textSize="22dp"
-        android:textStyle="bold" />
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/relative_humidity_name"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
+        style="@style/TextStyle1"
+        android:id="@+id/relative_humidity_name"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/x_uncalib"
-        android:textSize="18dp"
-        android:textColor="@color/orange"
-        android:background="@color/black"/>
+        style="@style/TextStyle2"
+        android:id="@+id/x_uncalib"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/y_uncalib"
-        android:textSize="18dp"
-        android:textColor="@color/orange"
-        android:background="@color/black"/>
+        style="@style/TextStyle2"
+        android:id="@+id/y_uncalib"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/z_uncalib"
-        android:textSize="18dp"
-        android:textColor="@color/orange"
-        android:background="@color/black"/>
+        style="@style/TextStyle2"
+        android:id="@+id/z_uncalib"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/x_bias"
-        android:textSize="18dp"
-        android:textColor="@color/orange"
-        android:background="@color/black"/>
+        style="@style/TextStyle2"
+        android:id="@+id/x_bias"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/y_bias"
-        android:textSize="18dp"
-        android:textColor="@color/orange"
-        android:background="@color/black"/>
+        style="@style/TextStyle2"
+        android:id="@+id/y_bias"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/z_bias"
-        android:textSize="18dp"
-        android:textColor="@color/orange"
-        android:background="@color/black"/>
+        style="@style/TextStyle2"
+        android:id="@+id/z_bias"/>
 </LinearLayout>

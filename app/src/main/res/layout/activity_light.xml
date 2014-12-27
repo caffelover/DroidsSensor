@@ -9,34 +9,10 @@
     android:id="@+id/linear_light"
     android:orientation="vertical"
     android:background="@color/black">
-
-    <TextView android:text="@string/title_activity_light"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@color/orange"
-        android:background="@color/black"
-        android:textSize="22dp"
-        android:textStyle="bold" />
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/light_name"
-        android:background="@color/black"
-        android:textColor="@color/orange"/>
+        style="@style/TextStyle1"
+        android:id="@+id/light_name"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/lux"
-        android:textSize="18dp"
-        android:textColor="@color/orange"
-        android:background="@color/black"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/to_top"
-        android:id="@+id/btnBack"
-        android:layout_gravity="left"
-        android:onClick="onClick" />
-
+        style="@style/TextStyle2"
+        android:id="@+id/lux"/>
 </LinearLayout>
