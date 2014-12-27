@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">DroidsSensor</string>
-    <string name="app_title">AndroidSensorChecker</string>
+    <string name="sensor_list">搭載センサー一覧</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_accelerater">加速度センサー</string>

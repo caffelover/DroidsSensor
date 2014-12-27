@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,6 +24,14 @@ public class Pressure extends ActionBarActivity implements SensorEventListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pressure);
+
+        //アクションバーの設定
+        ActionBar ac = getSupportActionBar();
+        ac.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME, ActionBar.DISPLAY_SHOW_HOME);
+        ac.setDisplayHomeAsUpEnabled(true);
+        ac.setHomeButtonEnabled(true);
+        ac.setDisplayShowHomeEnabled(true);
+
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_PRESSURE);
         sensor = list.get(0);
@@ -41,8 +50,8 @@ public class Pressure extends ActionBarActivity implements SensorEventListener {
     public void onSensorChanged(SensorEvent event){
         TextView textViewName = (TextView)findViewById(R.id.pressure_name);
         TextView textViewPitch = (TextView)findViewById(R.id.pressure);
-        textViewName.setText("センサー名：" + sensor.getName());
-        textViewPitch.setText("気圧" + event.values[0] + " hPa");
+        textViewName.setText("SensorName: " + sensor.getName());
+        textViewPitch.setText("Pressure(hPa):" + event.values[0]);
     }
 
     public void onClick(View v){
@@ -66,8 +75,8 @@ public class Pressure extends ActionBarActivity implements SensorEventListener {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == android.R.id.home) {
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

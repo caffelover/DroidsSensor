@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,6 +22,14 @@ public class Proximity extends ActionBarActivity implements SensorEventListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_proximity);
+
+        //アクションバーの設定
+        ActionBar ac = getSupportActionBar();
+        ac.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME, ActionBar.DISPLAY_SHOW_HOME);
+        ac.setDisplayHomeAsUpEnabled(true);
+        ac.setHomeButtonEnabled(true);
+        ac.setDisplayShowHomeEnabled(true);
+
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_PROXIMITY);
         sensor = list.get(0);
@@ -39,8 +48,8 @@ public class Proximity extends ActionBarActivity implements SensorEventListener 
     public void onSensorChanged(SensorEvent event){
         TextView textViewName = (TextView)findViewById(R.id.prox_name);
         TextView textViewProx = (TextView)findViewById(R.id.cm);
-        textViewName.setText("センサー名：" + sensor.getName());
-        textViewProx.setText("距離" + event.values[0] + " cm");
+        textViewName.setText("SensorName: " + sensor.getName());
+        textViewProx.setText("Distance(cm): " + event.values[0]);
     }
 
     @Override
@@ -58,8 +67,8 @@ public class Proximity extends ActionBarActivity implements SensorEventListener 
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == android.R.id.home) {
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

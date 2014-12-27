@@ -11,14 +11,14 @@
         android:id="@+id/main"
         android:background="@color/black"
         android:textColor="@color/orange"
-        android:textSize="18dp" />
+        android:textSize="22dp" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/sub"
         android:background="@color/black"
         android:textColor="@color/orange"
-        android:textSize="18dp" />
+        android:textSize="16dp" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

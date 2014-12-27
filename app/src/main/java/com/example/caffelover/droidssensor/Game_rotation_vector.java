@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,6 +23,14 @@ public class Game_rotation_vector extends ActionBarActivity implements SensorEve
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_rotation_vector);
+
+        //アクションバーの設定
+        ActionBar ac = getSupportActionBar();
+        ac.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME, ActionBar.DISPLAY_SHOW_HOME);
+        ac.setDisplayHomeAsUpEnabled(true);
+        ac.setHomeButtonEnabled(true);
+        ac.setDisplayShowHomeEnabled(true);
+
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_GAME_ROTATION_VECTOR);
         sensor = list.get(0);
@@ -43,11 +52,11 @@ public class Game_rotation_vector extends ActionBarActivity implements SensorEve
         TextView textViewY = (TextView)findViewById(R.id.y_axis);
         TextView textViewZ = (TextView)findViewById(R.id.z_axis);
         TextView textViewCos = (TextView)findViewById(R.id.cos);
-        textViewName.setText("センサー名：" + sensor.getName());
-        textViewX.setText("x*sin(θ/2)：" + event.values[0]);
-        textViewY.setText("y*sin(θ/2)：" + event.values[1]);
-        textViewZ.setText("z*sin(θ/2)：" + event.values[2]);
-        textViewCos.setText("cos(θ/2)：" + event.values[3]);
+        textViewName.setText("SensorName: " + sensor.getName());
+        textViewX.setText("x*sin(θ/2): " + event.values[0]);
+        textViewY.setText("y*sin(θ/2): " + event.values[1]);
+        textViewZ.setText("z*sin(θ/2): " + event.values[2]);
+        textViewCos.setText("cos(θ/2): " + event.values[3]);
     }
 
     @Override
@@ -65,8 +74,8 @@ public class Game_rotation_vector extends ActionBarActivity implements SensorEve
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == android.R.id.home) {
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

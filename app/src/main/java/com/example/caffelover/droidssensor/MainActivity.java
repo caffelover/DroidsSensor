@@ -35,7 +35,7 @@ import android.widget.Toast;
 //import java.util.List;
 
 
-public class MainActivity extends Activity implements SensorEventListener {
+public class MainActivity extends ActionBarActivity implements SensorEventListener {
     ListView lv;
 
     @Override
@@ -79,7 +79,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         ArrayList<String> subTextPre = new ArrayList<String>();
         for (Sensor sensor : list) {
             typePre.add(String.valueOf(sensor.getType()));
-            subTextPre.add(sensor.getVendor() + "社製：" + sensor.getName());
+            subTextPre.add(sensor.getVendor() + "製：" + sensor.getName());
         }
 
         //配列に変換

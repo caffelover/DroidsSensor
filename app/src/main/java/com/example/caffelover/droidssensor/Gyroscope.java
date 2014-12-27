@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,7 +17,7 @@ import android.widget.TextView;
 import java.util.List;
 
 
-public class Gyroscope extends Activity implements SensorEventListener {
+public class Gyroscope extends ActionBarActivity implements SensorEventListener {
     SensorManager mSensorManager;
     Sensor sensor;
 
@@ -24,6 +25,14 @@ public class Gyroscope extends Activity implements SensorEventListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gyroscope);
+
+        //アクションバーの設定
+        ActionBar ac = getSupportActionBar();
+        ac.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME, ActionBar.DISPLAY_SHOW_HOME);
+        ac.setDisplayHomeAsUpEnabled(true);
+        ac.setHomeButtonEnabled(true);
+        ac.setDisplayShowHomeEnabled(true);
+
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_GYROSCOPE);
         sensor = list.get(0);
@@ -45,13 +54,24 @@ public class Gyroscope extends Activity implements SensorEventListener {
         TextView textViewX = (TextView) findViewById(R.id.x_axis);
         TextView textViewY = (TextView) findViewById(R.id.y_axis);
         TextView textViewZ = (TextView) findViewById(R.id.z_axis);
-        textViewName.setText("センサー名：" + sensor.getName());
-        textViewX.setText("角速度-X軸：" + event.values[0]);
-        textViewY.setText("角速度-Y軸：" + event.values[1]);
-        textViewZ.setText("角速度-Z軸：" + event.values[2]);
+        textViewName.setText("SensorName: " + sensor.getName());
+        textViewX.setText("Angular speed around the x-axis: " + event.values[0]);
+        textViewY.setText("Angular speed around the y-axis: " + event.values[1]);
+        textViewZ.setText("Angular speed around the z-axis: " + event.values[2]);
     }
-    public void onClick(View v){
-        //Orientation終了
-        finish();
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == android.R.id.home) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

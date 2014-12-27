@@ -6,6 +6,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Build;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,6 +24,14 @@ public class Rotation_vector extends ActionBarActivity implements SensorEventLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rotation_vector);
+
+        //アクションバーの設定
+        ActionBar ac = getSupportActionBar();
+        ac.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME, ActionBar.DISPLAY_SHOW_HOME);
+        ac.setDisplayHomeAsUpEnabled(true);
+        ac.setHomeButtonEnabled(true);
+        ac.setDisplayShowHomeEnabled(true);
+
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_ROTATION_VECTOR);
         sensor = list.get(0);
@@ -45,7 +54,7 @@ public class Rotation_vector extends ActionBarActivity implements SensorEventLis
         TextView textViewRotVectorZ = (TextView)findViewById(R.id.z_axis);
         TextView textViewCos = (TextView)findViewById(R.id.cos);
         TextView textViewAccuracy = (TextView)findViewById(R.id.accuracy);
-        textViewName.setText("センサー名：" + sensor.getName());
+        textViewName.setText("SensorName: " + sensor.getName());
         textViewRotVectorX.setText("x*sin(θ/2)：" + event.values[0]);
         textViewRotVectorY.setText("y*sin(θ/2)：" + event.values[1]);
         textViewRotVectorZ.setText("z*sin(θ/2)：" + event.values[2]);
@@ -70,8 +79,8 @@ public class Rotation_vector extends ActionBarActivity implements SensorEventLis
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == android.R.id.home) {
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

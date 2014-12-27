@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,6 +23,14 @@ public class Stepdetector extends ActionBarActivity implements SensorEventListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stepdetector);
+
+        //アクションバーの設定
+        ActionBar ac = getSupportActionBar();
+        ac.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME, ActionBar.DISPLAY_SHOW_HOME);
+        ac.setDisplayHomeAsUpEnabled(true);
+        ac.setHomeButtonEnabled(true);
+        ac.setDisplayShowHomeEnabled(true);
+
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_STEP_DETECTOR);
         sensor = list.get(0);
@@ -41,7 +50,7 @@ public class Stepdetector extends ActionBarActivity implements SensorEventListen
     public void onSensorChanged(SensorEvent event) {
         TextView textViewName = (TextView) findViewById(R.id.step_detector_name);
         TextView textViewWake = (TextView) findViewById(R.id.step);
-        textViewName.setText("センサー名：" + sensor.getName());
+        textViewName.setText("SensorName: " + sensor.getName());
         textViewWake.setText("Step：" + event.values[0]);
     }
 
@@ -60,8 +69,8 @@ public class Stepdetector extends ActionBarActivity implements SensorEventListen
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == android.R.id.home) {
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

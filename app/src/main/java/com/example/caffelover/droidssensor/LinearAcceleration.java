@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,6 +23,14 @@ public class LinearAcceleration extends ActionBarActivity implements SensorEvent
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_linear_acceleration);
+
+        //アクションバーの設定
+        ActionBar ac = getSupportActionBar();
+        ac.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME, ActionBar.DISPLAY_SHOW_HOME);
+        ac.setDisplayHomeAsUpEnabled(true);
+        ac.setHomeButtonEnabled(true);
+        ac.setDisplayShowHomeEnabled(true);
+
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_LINEAR_ACCELERATION);
         sensor = list.get(0);
@@ -42,10 +51,10 @@ public class LinearAcceleration extends ActionBarActivity implements SensorEvent
         TextView textViewAccelX = (TextView)findViewById(R.id.ms2_x);
         TextView textViewAccelY = (TextView)findViewById(R.id.ms2_y);
         TextView textViewAccelZ = (TextView)findViewById(R.id.ms2_z);
-        textViewName.setText("センサー名：" + sensor.getName());
-        textViewAccelX.setText("直線加速度-X軸：" + event.values[0] + " m/s^2");
-        textViewAccelY.setText("直線加速度-Y軸：" + event.values[1] + " m/s^2");
-        textViewAccelZ.setText("直線加速度-Z軸：" + event.values[2] + " m/s^2");
+        textViewName.setText("SensorName: " + sensor.getName());
+        textViewAccelX.setText("acceleration x-axis(m/s^2): " + event.values[0]);
+        textViewAccelY.setText("acceleration y-axis(m/s^2): ：" + event.values[1]);
+        textViewAccelZ.setText("acceleration z-axis(m/s^2): " + event.values[2]);
     }
 
     @Override
@@ -63,8 +72,8 @@ public class LinearAcceleration extends ActionBarActivity implements SensorEvent
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == android.R.id.home) {
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

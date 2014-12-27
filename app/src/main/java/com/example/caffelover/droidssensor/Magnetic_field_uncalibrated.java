@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,6 +23,14 @@ public class Magnetic_field_uncalibrated extends ActionBarActivity implements Se
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_magnetic_field_uncalibrated);
+
+        //アクションバーの設定
+        ActionBar ac = getSupportActionBar();
+        ac.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME, ActionBar.DISPLAY_SHOW_HOME);
+        ac.setDisplayHomeAsUpEnabled(true);
+        ac.setHomeButtonEnabled(true);
+        ac.setDisplayShowHomeEnabled(true);
+
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_MAGNETIC_FIELD_UNCALIBRATED);
         sensor = list.get(0);
@@ -45,13 +54,13 @@ public class Magnetic_field_uncalibrated extends ActionBarActivity implements Se
         TextView textViewBiasX = (TextView)findViewById(R.id.x_bias);
         TextView textViewBiasY = (TextView)findViewById(R.id.y_bias);
         TextView textViewBiasZ = (TextView)findViewById(R.id.z_bias);
-        textViewName.setText("センサー名：" + sensor.getName());
-        textViewUncalibX.setText("x_uncalib：" + event.values[0]);
-        textViewUncalibY.setText("y_uncalib：" + event.values[1]);
-        textViewUncalibZ.setText("z_uncalib：" + event.values[2]);
-        textViewBiasX.setText("x_bias：" + event.values[3]);
-        textViewBiasY.setText("y_bias：" + event.values[4]);
-        textViewBiasZ.setText("z_bias：" + event.values[5]);
+        textViewName.setText("SensorName: " + sensor.getName());
+        textViewUncalibX.setText("x_uncalib: " + event.values[0]);
+        textViewUncalibY.setText("y_uncalib: " + event.values[1]);
+        textViewUncalibZ.setText("z_uncalib: " + event.values[2]);
+        textViewBiasX.setText("x_bias: " + event.values[3]);
+        textViewBiasY.setText("y_bias: " + event.values[4]);
+        textViewBiasZ.setText("z_bias: " + event.values[5]);
     }
 
     @Override
@@ -69,8 +78,8 @@ public class Magnetic_field_uncalibrated extends ActionBarActivity implements Se
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == android.R.id.home) {
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

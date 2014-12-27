@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,6 +23,14 @@ public class Geomagnetic_Rotation_Vector extends ActionBarActivity implements Se
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_geomagnetic__rotation__vector);
+
+        //アクションバーの設定
+        ActionBar ac = getSupportActionBar();
+        ac.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME, ActionBar.DISPLAY_SHOW_HOME);
+        ac.setDisplayHomeAsUpEnabled(true);
+        ac.setHomeButtonEnabled(true);
+        ac.setDisplayShowHomeEnabled(true);
+
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR);
         sensor = list.get(0);
@@ -44,12 +53,12 @@ public class Geomagnetic_Rotation_Vector extends ActionBarActivity implements Se
         TextView textViewRotVectorZ = (TextView)findViewById(R.id.z_axis);
         TextView textViewCos = (TextView)findViewById(R.id.cos);
         TextView textViewAccuracy = (TextView)findViewById(R.id.accuracy);
-        textViewName.setText("センサー名：" + sensor.getName());
-        textViewRotVectorX.setText("x*sin(θ/2)：" + event.values[0]);
-        textViewRotVectorY.setText("y*sin(θ/2)：" + event.values[1]);
-        textViewRotVectorZ.setText("z*sin(θ/2)：" + event.values[2]);
+        textViewName.setText("SensorName: " + sensor.getName());
+        textViewRotVectorX.setText("x*sin(θ/2): " + event.values[0]);
+        textViewRotVectorY.setText("y*sin(θ/2): " + event.values[1]);
+        textViewRotVectorZ.setText("z*sin(θ/2): " + event.values[2]);
         textViewCos.setText("cos(θ/2)：" + event.values[3]);
-        textViewAccuracy.setText("estimated heading Accuracy (in radians)：" + event.values[4]);
+        textViewAccuracy.setText("estimated heading Accuracy (in radians): " + event.values[4]);
     }
 
     @Override
@@ -67,8 +76,8 @@ public class Geomagnetic_Rotation_Vector extends ActionBarActivity implements Se
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == android.R.id.home) {
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

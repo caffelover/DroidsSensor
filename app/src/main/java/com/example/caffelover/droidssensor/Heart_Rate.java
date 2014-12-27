@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,6 +23,14 @@ public class Heart_Rate extends ActionBarActivity implements SensorEventListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_heart__rate);
+
+        //アクションバーの設定
+        ActionBar ac = getSupportActionBar();
+        ac.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME, ActionBar.DISPLAY_SHOW_HOME);
+        ac.setDisplayHomeAsUpEnabled(true);
+        ac.setHomeButtonEnabled(true);
+        ac.setDisplayShowHomeEnabled(true);
+
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_HEART_RATE);
         sensor = list.get(0);
@@ -40,8 +49,8 @@ public class Heart_Rate extends ActionBarActivity implements SensorEventListener
     public void onSensorChanged(SensorEvent event){
         TextView textViewName = (TextView)findViewById(R.id.heart_rate_name);
         TextView textViewHearRate = (TextView)findViewById(R.id.rate);
-        textViewName.setText("センサー名：" + sensor.getName());
-        textViewHearRate.setText("心拍数：" + event.values[0]);
+        textViewName.setText("SensorName: " + sensor.getName());
+        textViewHearRate.setText("HeartRate: " + event.values[0]);
     }
 
     @Override
@@ -59,8 +68,8 @@ public class Heart_Rate extends ActionBarActivity implements SensorEventListener
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == android.R.id.home) {
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

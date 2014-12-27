@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,6 +23,14 @@ public class Gravity extends ActionBarActivity implements SensorEventListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gravity);
+
+        //アクションバーの設定
+        ActionBar ac = getSupportActionBar();
+        ac.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME, ActionBar.DISPLAY_SHOW_HOME);
+        ac.setDisplayHomeAsUpEnabled(true);
+        ac.setHomeButtonEnabled(true);
+        ac.setDisplayShowHomeEnabled(true);
+
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_GRAVITY);
         sensor = list.get(0);
@@ -42,10 +51,10 @@ public class Gravity extends ActionBarActivity implements SensorEventListener {
         TextView textViewGravityX = (TextView)findViewById(R.id.ms2_x);
         TextView textViewGravityY = (TextView)findViewById(R.id.ms2_y);
         TextView textViewGravityZ = (TextView)findViewById(R.id.ms2_z);
-        textViewName.setText("センサー名：" + sensor.getName());
-        textViewGravityX.setText("重力加速度-X軸：" + event.values[0] + " m/s^2");
-        textViewGravityY.setText("重力加速度-Y軸：" + event.values[1] + " m/s^2");
-        textViewGravityZ.setText("重力加速度-Z軸：" + event.values[2] + " m/s^2");
+        textViewName.setText("SensorName: " + sensor.getName());
+        textViewGravityX.setText("x-axis(m/s^2)：" + event.values[0]);
+        textViewGravityY.setText("y-axis(m/s^2)：" + event.values[1]);
+        textViewGravityZ.setText("z-axis(m/s^2)：" + event.values[2]);
     }
 
 
@@ -64,8 +73,8 @@ public class Gravity extends ActionBarActivity implements SensorEventListener {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == android.R.id.home) {
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

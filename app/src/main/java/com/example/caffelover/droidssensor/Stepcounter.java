@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,6 +23,14 @@ public class Stepcounter extends ActionBarActivity implements SensorEventListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stepcounter);
+
+        //アクションバーの設定
+        ActionBar ac = getSupportActionBar();
+        ac.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME, ActionBar.DISPLAY_SHOW_HOME);
+        ac.setDisplayHomeAsUpEnabled(true);
+        ac.setHomeButtonEnabled(true);
+        ac.setDisplayShowHomeEnabled(true);
+
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_STEP_COUNTER);
         sensor = list.get(0);
@@ -48,8 +57,8 @@ public class Stepcounter extends ActionBarActivity implements SensorEventListene
     public void onSensorChanged(SensorEvent event) {
         TextView textViewName = (TextView) findViewById(R.id.step_counter_name);
         TextView textViewWake = (TextView) findViewById(R.id.step_count);
-        textViewName.setText("センサー名：" + sensor.getName());
-        textViewWake.setText("StepCount：" + event.values[0]);
+        textViewName.setText("SensorName: " + sensor.getName());
+        textViewWake.setText("StepCount: " + event.values[0]);
     }
 
     @Override
@@ -60,8 +69,8 @@ public class Stepcounter extends ActionBarActivity implements SensorEventListene
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == android.R.id.home) {
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

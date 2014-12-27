@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,6 +23,14 @@ public class Ambient_temperature extends ActionBarActivity implements SensorEven
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ambient_temperature);
+
+        //アクションバーの設定
+        ActionBar ac = getSupportActionBar();
+        ac.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME, ActionBar.DISPLAY_SHOW_HOME);
+        ac.setDisplayHomeAsUpEnabled(true);
+        ac.setHomeButtonEnabled(true);
+        ac.setDisplayShowHomeEnabled(true);
+
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_AMBIENT_TEMPERATURE);
         sensor = list.get(0);
@@ -40,8 +49,8 @@ public class Ambient_temperature extends ActionBarActivity implements SensorEven
     public void onSensorChanged(SensorEvent event){
         TextView textViewName = (TextView)findViewById(R.id.ambient_temperature_name);
         TextView textViewTemperature = (TextView)findViewById(R.id.temperature);
-        textViewName.setText("センサー名：" + sensor.getName());
-        textViewTemperature.setText("ambient (room) temperature(degree Celsius)：" + event.values[0]);
+        textViewName.setText("SensorName: " + sensor.getName());
+        textViewTemperature.setText("ambient (room) temperature(degree Celsius): " + event.values[0]);
     }
 
     @Override
@@ -59,8 +68,8 @@ public class Ambient_temperature extends ActionBarActivity implements SensorEven
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == android.R.id.home) {
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

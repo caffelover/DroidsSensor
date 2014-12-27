@@ -5,6 +5,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,6 +23,14 @@ public class Gyroscope_uncalibrated extends ActionBarActivity implements SensorE
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gyroscope_uncalibrated);
+
+        //アクションバーの設定
+        ActionBar ac = getSupportActionBar();
+        ac.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME, ActionBar.DISPLAY_SHOW_HOME);
+        ac.setDisplayHomeAsUpEnabled(true);
+        ac.setHomeButtonEnabled(true);
+        ac.setDisplayShowHomeEnabled(true);
+
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         List<Sensor> list = mSensorManager.getSensorList(Sensor.TYPE_GYROSCOPE_UNCALIBRATED);
         sensor = list.get(0);
@@ -46,13 +55,13 @@ public class Gyroscope_uncalibrated extends ActionBarActivity implements SensorE
         TextView textViewX_est = (TextView) findViewById(R.id.x_axis_estimated);
         TextView textViewY_est = (TextView) findViewById(R.id.y_axis_estimated);
         TextView textViewZ_est = (TextView) findViewById(R.id.z_axis_estimated);
-        textViewName.setText("センサー名：" + sensor.getName());
-        textViewX.setText("angular speed around the X axis(rad/s)：" + event.values[0]);
-        textViewY.setText("angular speed around the Y axis(rad/s)：" + event.values[1]);
-        textViewZ.setText("angular speed around the Z axis(rad/s)：" + event.values[2]);
-        textViewX_est.setText("estimated drift around X axis(rad/s)：" + event.values[3]);
-        textViewY_est.setText("estimated drift around Y axis(rad/s)：" + event.values[4]);
-        textViewZ_est.setText("estimated drift around Z axis(rad/s)：" + event.values[5]);
+        textViewName.setText("SensorName: " + sensor.getName());
+        textViewX.setText("angular speed around the X axis(rad/s): " + event.values[0]);
+        textViewY.setText("angular speed around the Y axis(rad/s): " + event.values[1]);
+        textViewZ.setText("angular speed around the Z axis(rad/s): " + event.values[2]);
+        textViewX_est.setText("estimated drift around X axis(rad/s): " + event.values[3]);
+        textViewY_est.setText("estimated drift around Y axis(rad/s): " + event.values[4]);
+        textViewZ_est.setText("estimated drift around Z axis(rad/s): " + event.values[5]);
     }
 
     @Override
@@ -70,8 +79,8 @@ public class Gyroscope_uncalibrated extends ActionBarActivity implements SensorE
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == android.R.id.home) {
+            finish();
         }
 
         return super.onOptionsItemSelected(item);
